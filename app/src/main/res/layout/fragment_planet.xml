@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001122">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/planet_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PLANETA"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/planet_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Información del planeta"
+            android:textSize="16sp"
+            android:textColor="#CCCCCC"
+            android:gravity="center"
+            android:padding="15dp"
+            android:background="@drawable/info_card_background"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🌙 LUNAS DISPONIBLES"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_moon1"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="Luna 1"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/moon_button"
+                android:layout_margin="8dp"
+                android:elevation="6dp" />
+
+            <Button
+                android:id="@+id/btn_moon2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="Luna 2"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/moon_button"
+                android:layout_margin="8dp"
+                android:elevation="6dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔍 PUNTOS DE INTERÉS"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_explore_base"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🏗️ Base de Exploración"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/interest_button"
+                android:layout_margin="5dp"
+                android:elevation="4dp" />
+
+            <Button
+                android:id="@+id/btn_view_atmosphere"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🌬️ Ver Atmósfera"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/interest_button"
+                android:layout_margin="5dp"
+                android:elevation="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

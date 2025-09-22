@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Solar Explorer</string>
+
+    <!-- Activity Titles -->
+    <string name="main_title">Sistema Solar</string>
+    <string name="planet_title">Explorador de Planetas</string>
+    <string name="moon_title">Explorador de Lunas</string>
+
+    <!-- Navigation -->
+    <string name="explore">Explorar</string>
+    <string name="back">Regresar</string>
+    <string name="close">Cerrar</string>
+
+    <!-- Planet Names -->
+    <string name="earth">Tierra</string>
+    <string name="mars">Marte</string>
+    <string name="jupiter">Júpiter</string>
+    <string name="saturn">Saturno</string>
+
+    <!-- Moon Names -->
+    <string name="moon">Luna</string>
+    <string name="phobos">Fobos</string>
+    <string name="deimos">Deimos</string>
+    <string name="europa">Europa</string>
+    <string name="io">Io</string>
+    <string name="titan">Titán</string>
+    <string name="enceladus">Encélado</string>
+
+    <!-- Interest Points -->
+    <string name="exploration_base">Base de Exploración</string>
+    <string name="atmosphere">Atmósfera</string>
+    <string name="landing_site">Sitio de Aterrizaje</string>
+    <string name="crater">Cráter Principal</string>
+    <string name="composition">Composición</string>
+
+    <!-- Descriptions -->
+    <string name="space_subtitle">Explora los planetas de nuestro sistema solar</string>
+    <string name="planet_instruction">Toca un planeta para comenzar tu exploración</string>
+    <string name="moon_subtitle">Explora los misterios de este satélite natural</string>
+
+    <!-- Info Messages -->
+    <string name="earth_info">El planeta azul, nuestro hogar en el universo.</string>
+    <string name="mars_info">El planeta rojo, objetivo de futuras misiones.</string>
+    <string name="jupiter_info">El gigante gaseoso con más de 80 lunas.</string>
+    <string name="saturn_info">Famoso por sus espectaculares anillos.</string>
+
+    <!-- Interest Point Info -->
+    <string name="base_info">Aquí los astronautas realizan investigaciones científicas.</string>
+    <string name="landing_info">Zona designada para futuras misiones de exploración.</string>
+    <string name="crater_info">Formado por impactos de meteoritos a lo largo de millones de años.</string>
+    <!-- Nuevos strings para las advertencias -->
+    <string name="view_moons">🔭 Ver Lunas</string>
+    <string name="planet_desc">Imagen del planeta</string>
+    <string name="volcano_desc">Volcán</string>
+    <string name="crater_desc">Cráter</string>
+    <string name="base_desc">Base espacial</string>
+</resources>

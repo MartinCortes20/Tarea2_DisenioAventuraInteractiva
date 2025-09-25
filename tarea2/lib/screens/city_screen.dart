@@ -9,33 +9,41 @@ class CityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Lista de puntos de interés de CDMX
     final List<PlaceInfo> cdmxPlaces = [
       PlaceInfo(
         icon: Icons.account_balance,
         title: 'Zócalo',
-        description: 'Plaza principal e histórica\nCorazón de la ciudad',
+        description:
+            '🏛️ Plaza principal e histórica\n❤️ Corazón de la ciudad\n📍 Centro Histórico\n🎭 Eventos culturales',
         color: AppColors.interestOrange,
       ),
       PlaceInfo(
         icon: Icons.park,
-        title: 'Chapultepec',
-        description: 'Uno de los parques urbanos\nmás grandes del mundo',
+        title: 'Bosque de Chapultepec',
+        description:
+            '🌳 686 hectáreas de naturaleza\n🏰 Castillo histórico\n🦁 Zoológico\n🎨 Museos de clase mundial',
         color: AppColors.interestGreen,
       ),
       PlaceInfo(
         icon: Icons.article,
         title: 'Datos CDMX',
         description:
-            '9 millones de habitantes\n1,485 km² de superficie\n16 alcaldías\nPatrimonio de la Humanidad',
+            '👥 9 millones de habitantes\n🗺️ 1,485 km² de superficie\n🏛️ 16 alcaldías\n🌍 Patrimonio de la Humanidad UNESCO',
         color: AppColors.interestBlue,
       ),
       PlaceInfo(
         icon: Icons.restaurant,
         title: 'Gastronomía',
         description:
-            'Tacos, quesadillas, tamales\nCocina patrimonio inmaterial',
+            '🌮 Tacos al pastor\n🫔 Quesadillas y tamales\n🍫 Chocolate tradicional\n🎖️ Patrimonio Inmaterial UNESCO',
         color: AppColors.interestRed,
+      ),
+      PlaceInfo(
+        icon: Icons.directions_subway,
+        title: 'Transporte',
+        description:
+            '🚇 12 líneas de Metro\n🚌 Red de Metrobús\n🚴 Ecobici (bicicletas públicas)\n✈️ AICM: Aeropuerto Internacional',
+        color: AppColors.interestPink,
       ),
     ];
 
@@ -55,69 +63,79 @@ class CityScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              _buildBackButton(context),
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 8),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
+                ),
+              ),
               const TitleWidget(
                 title: '🏙️ CIUDAD DE MÉXICO',
-                subtitle: 'Capital de México',
+                subtitle: 'Capital de México - Una de las ciudades más grandes del mundo',
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        // Generar puntos de interés dinámicamente
-                        ...cdmxPlaces.map((place) => Padding(
-                              padding: const EdgeInsets.only(bottom: 20),
-                              child: InterestPointWidget(
-                                icon: place.icon,
-                                title: place.title,
-                                description: place.description,
-                                color: place.color,
-                              ),
-                            )),
-                        const SizedBox(height: 10),
-                        
-                        // Botón para volver al inicio
-                        _buildHomeButton(context),
-                      ],
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  children: [
+                    ...cdmxPlaces.map((place) => Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: InterestPointWidget(
+                            icon: place.icon,
+                            title: place.title,
+                            description: place.description,
+                            color: place.color,
+                          ),
+                        )),
+                    const SizedBox(height: 20),
+                    
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.popUntil(context, (route) => route.isFirst);
+                        },
+                        icon: const Icon(Icons.home, size: 24),
+                        label: const Text(
+                          'Volver al Mapa Mundial',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: const Color(0xFF1F2937),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 32,
+                            vertical: 18,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 8,
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 30),
+                  ],
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildBackButton(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildHomeButton(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        Navigator.popUntil(context, (route) => route.isFirst);
-      },
-      icon: const Icon(Icons.home),
-      label: const Text('Volver al Mapa Mundial'),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 15,
-        ),
-        textStyle: const TextStyle(fontSize: 16),
       ),
     );
   }

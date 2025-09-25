@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/title_widget.dart';
 import '../widgets/interest_point_widget.dart';
+import '../widgets/navigation_button.dart';
 import '../constants/app_colors.dart';
 import 'country_screen.dart';
 
@@ -25,79 +26,70 @@ class ContinentScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              _buildBackButton(context),
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 8),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
+                ),
+              ),
               const TitleWidget(
                 title: '🌎 CONTINENTE AMERICANO',
-                subtitle: 'Explora los países de América',
+                subtitle: 'De Alaska a la Patagonia',
               ),
               Expanded(
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Punto de interés de América
-                      const InterestPointWidget(
-                        icon: Icons.terrain,
-                        title: 'Datos de América',
-                        description:
-                            '42.5 millones km²\n1,000 millones de habitantes\nDesde Alaska hasta Argentina',
-                        color: AppColors.interestAmber,
-                      ),
-                      const SizedBox(height: 40),
-                      
-                      // Botón para navegar a México
-                      _buildMexicoButton(context),
-                    ],
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        const InterestPointWidget(
+                          icon: Icons.terrain,
+                          title: 'Datos de América',
+                          description:
+                              '🗺️ 42.5 millones km²\n👥 1,000 millones de habitantes\n🏔️ Desde Alaska hasta Argentina\n🌴 Gran biodiversidad',
+                          color: AppColors.interestAmber,
+                        ),
+                        const SizedBox(height: 30),
+                        const InterestPointWidget(
+                          icon: Icons.landscape,
+                          title: 'Geografía Destacada',
+                          description:
+                              '🏔️ Cordillera de los Andes\n🌊 Amazonas: río más caudaloso\n🏜️ Desierto de Atacama',
+                          color: AppColors.interestGreen,
+                        ),
+                        const SizedBox(height: 50),
+                        
+                        Hero(
+                          tag: 'mexico',
+                          child: NavigationButton(
+                            text: '🇲🇽 MÉXICO',
+                            icon: Icons.flag,
+                            color: const Color(0xFFDC2626),
+                            onTap: () => _navigateToCountry(context),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBackButton(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white, size: 30),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildMexicoButton(BuildContext context) {
-    return Hero(
-      tag: 'mexico',
-      child: GestureDetector(
-        onTap: () => _navigateToCountry(context),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-          decoration: BoxDecoration(
-            color: Colors.red.shade700,
-            borderRadius: BorderRadius.circular(30),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.red.withOpacity(0.5),
-                blurRadius: 20,
-                spreadRadius: 3,
-              ),
-            ],
-          ),
-          child: const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.flag, size: 40, color: Colors.white),
-              SizedBox(width: 15),
-              Text(
-                '🇲🇽 MÉXICO',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
